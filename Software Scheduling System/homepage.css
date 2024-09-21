@@ -1,0 +1,78 @@
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+ 
+}
+.container{
+    position: relative;
+    min-height: 100vh;
+}
+h1{
+    position: absolute;
+    top: 25%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    color:#000;
+}
+p{
+    position: absolute;
+    top: 28%;
+    left: 40%;
+    font-size: 30px;
+    font-weight: 100;
+}
+svg{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.text1 p{
+    position: absolute;
+    top: 42%;
+    left: 33%;
+    font-size: 18px;
+    width: 500px;
+    margin: auto;
+}
+.button {
+    background-color: #25d415;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    left: 35%;
+    top: 370px;
+  }
+  
+  .button:hover {opacity: 1}
+
+  .button1 {
+    background-color: #25d415;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    left: 45%;
+    top: 370px;
+  }
+  
+  .button1:hover {opacity: 1}

@@ -1,0 +1,41 @@
+<?php
+include 'config.php';
+$msg = "";
+if (isset($_POST['submit'])) {
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $currentDate = date('Y-m-d');
+    $currentTime = date('H:i');
+
+    $sql = "SELECT * FROM booking WHERE email='{$email}'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+    if($row){
+        if($email === $row["email"]){
+            // Get the date and time from the database
+            $dbDate = $row["date"];
+            $dbTime = $row["timeslot"];
+
+            if($dbDate === $currentDate){
+                // Split the time range into start and end times
+                list($startTime, $endTime) = explode("-", str_replace(['AM', 'PM'], ['', ''], $dbTime));
+
+                // Convert the start and end times to 24-hour format
+                // $startTime24 = date("H:i", strtotime($startTime));
+                // $endTime24 = date("H:i", strtotime($endTime));
+
+                // Check if the current time is within the time range
+                if($currentTime >= $startTime && $currentTime < $endTime){
+                    header("Location:  https://likable-spider-3028.dataplicity.io/");
+                }else{
+                    $msg = "<div class='alert alert-danger'>Current time is not within the booked timeslot.</div>";
+                } 
+            }else{
+                $msg = "<div class='alert alert-danger'>Date do not match.</div>";
+            }
+        }
+    }else{
+        $msg = "<div class='alert alert-danger'>Email or password do not match.</div>";
+    }
+}
+?>
